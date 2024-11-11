@@ -33,7 +33,6 @@ return require('packer').startup(function(use)
 	use {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
 		"mfussenegger/nvim-jdtls"
     }
     -- install without yarn or npm
