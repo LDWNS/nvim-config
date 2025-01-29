@@ -20,7 +20,7 @@ local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'ast_grep', 'html', 'ts_ls', 'rust_analyzer', 'yamlls', 'bash'},
+  ensure_installed = {'ast_grep', 'html', 'ts_ls', 'rust_analyzer', 'yamlls', 'bashls'},
   handlers = {
     function(server_name)
       require('lspconfig')[server_name].setup({

@@ -98,7 +98,7 @@ local function get_jdtls_paths()
 	    -- },
 	    {
 		    name = 'JavaSE-21',
-		    path = vim.fn.expand('~/.sdkman/candidates/java/21.0.4-tem'),
+		    path = vim.fn.expand('~/.sdkman/candidates/java/21.0.2-open'),
 	    },
   }
 
@@ -228,10 +228,11 @@ local function jdtls_setup(event)
       --   }
       -- },
       format = {
-        enabled = true,
-        -- settings = {
-        --   profile = 'asdf'
-        -- },
+         settings = {
+             settings = {
+                 url = '/Users/lukasdownes/Documents/eclipse-format.xml',
+             }
+         },
       }
     },
     signatureHelp = {
@@ -247,6 +248,14 @@ local function jdtls_setup(event)
         'java.util.Objects.requireNonNullElse',
         'org.mockito.Mockito.*',
       },
+      importOrder = {
+          "java",
+          "jakarta",
+          "javax",
+          "ai.timefold",
+          "com",
+          "org"
+      }
     },
     contentProvider = {
       preferred = 'fernflower',
