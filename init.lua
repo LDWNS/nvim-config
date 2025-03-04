@@ -1,1 +1,1 @@
-require("ldwns")
+require("config.lazy")
