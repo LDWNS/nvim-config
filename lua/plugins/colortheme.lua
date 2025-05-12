@@ -1,13 +1,14 @@
--- ~/nvim/lua/slydragonn/plugins/colorscheme.lua
+--[[
+return {
+	"tiagovla/tokyodark.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		vim.cmd("colorscheme tokyodark")
+	end,
+}
+]]
 
---return {
---	"tiagovla/tokyodark.nvim",
---	lazy = false,
---	priority = 1000,
---	config = function()
---		vim.cmd("colorscheme tokyodark")
---	end,
---}
 return {
 	"projekt0n/github-nvim-theme",
 	name = "github-theme",

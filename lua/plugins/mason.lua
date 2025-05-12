@@ -16,16 +16,21 @@ return {
 				"eslint",
 				"html",
 				"ts_ls",
+				"lua_ls",
+				"bashls",
 				"jsonls",
 				"tailwindcss",
+				"jdtls",
 			},
 		})
 
 		require("mason-tool-installer").setup({
 			ensure_installed = {
 				"prettier",
-				"stylua", -- lua formatter
+				"stylua",
 				"eslint_d",
+				"beautysh",
+				"google-java-format",
 			},
 		})
 	end,
