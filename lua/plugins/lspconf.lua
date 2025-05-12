@@ -15,7 +15,7 @@ return {
 
 		local on_attach = function(client, bufnr)
 			-- format on save
-			if client.server_capabilities.documentFormattingProvider then
+			if client.server_capabilities.documentFormattingProvider and false then
 				vim.api.nvim_create_autocmd("BufWritePre", {
 					group = vim.api.nvim_create_augroup("Format", { clear = true }),
 					buffer = bufnr,
@@ -24,6 +24,13 @@ return {
 					end,
 				})
 			end
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
+
+			-- Show line diagnostics automatically in hover window
+			vim.o.updatetime = 250
+			vim.cmd([[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 		end
 
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -31,6 +38,18 @@ return {
 		mason_lspconfig.setup_handlers({
 			function(server)
 				nvim_lsp[server].setup({
+					capabilities = capabilities,
+				})
+			end,
+			["lua_ls"] = function()
+				nvim_lsp["lua_ls"].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			end,
+			["bashls"] = function()
+				nvim_lsp["bashls"].setup({
+					on_attach = on_attach,
 					capabilities = capabilities,
 				})
 			end,
@@ -53,19 +72,25 @@ return {
 				})
 			end,
 			["ts_ls"] = function()
-				nvim_lsp["jsonls"].setup({
+				nvim_lsp["ts_ls"].setup({
 					on_attach = on_attach,
 					capabilities = capabilities,
 				})
 			end,
 			["jsonls"] = function()
-				nvim_lsp["ts_ls"].setup({
+				nvim_lsp["jsonls"].setup({
 					on_attach = on_attach,
 					capabilities = capabilities,
 				})
 			end,
 			["eslint"] = function()
 				nvim_lsp["eslint"].setup({
+					on_attach = on_attach,
+					capabilities = capabilities,
+				})
+			end,
+			["jdtls"] = function()
+				nvim_lsp["jdtls"].setup({
 					on_attach = on_attach,
 					capabilities = capabilities,
 				})
