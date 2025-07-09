@@ -1,4 +1,4 @@
--- ~/nvim/lua/slydragonn/plugins/mason.lua
+--- ~/nvim/lua/slydragonn/plugins/mason.lua
 
 return {
 	"williamboman/mason.nvim",
@@ -29,7 +29,6 @@ return {
 				"prettier",
 				"stylua",
 				"eslint_d",
-				"beautysh",
 				"google-java-format",
 			},
 		})
