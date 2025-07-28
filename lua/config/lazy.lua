@@ -38,7 +38,7 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.swapfile = false
+vim.opt.swapfile= false
 vim.opt.backup = false
 
 vim.opt.hlsearch = false
@@ -51,6 +51,15 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 421
+
+vim.keymap.set("n", "]d", function()
+    vim.diagnostic.jump({count = 1, float = true})
+end
+)
+vim.keymap.set("n", "[d", function()
+    vim.diagnostic.jump({ count = -1, float = true })
+end
+)
 
 --vim.opt.colorcolumn = "80"
 

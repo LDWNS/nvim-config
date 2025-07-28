@@ -1,4 +1,4 @@
--- ~/nvim/lua/slydragonn/plugins/formatter.lua
+--k ~/nvim/lua/slydragonn/plugins/formatter.lua
 
 return {
 	"stevearc/conform.nvim",
