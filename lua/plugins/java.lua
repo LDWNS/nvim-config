@@ -4,6 +4,9 @@ return {
         lazy =true,
         ft = "java",
         config = function()
+            if vim.bo.filetype ~= "java" then
+                return
+            end
             local jdtls = require('jdtls')
             -- Find root of project
             local root_markers = {'gradlew', 'mvnw', '.git', 'pom.xml', 'build.gradle'}
