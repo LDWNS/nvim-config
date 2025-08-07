@@ -1,19 +1,46 @@
 return {
     {
+        "mfussenegger/nvim-dap",
+        config = function() end,
+    }, 
+	{ "nvim-neotest/nvim-nio" },
+	-- todo: fix indenting
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
+		config = function()
+			local dap = require "dap"
+			local dapui = require "dapui"
+			dapui.setup()
+			
+			vim.keymap.set("n", "<leader>dt", "<cmd>lua require('dapui').toggle()<CR>", {})
+			dap.listeners.after.event_initialized["dapui_config"] = function()
+				dapui.open()
+			end
+		end,
+	},
+
+    {
         "mfussenegger/nvim-jdtls",
         lazy =true,
         ft = "java",
         config = function()
-            if vim.bo.filetype ~= "java" then
-                return
-            end
+           -- if vim.bo.filetype ~= "java" then
+           --     return
+           -- end
             local jdtls = require('jdtls')
             -- Find root of project
             local root_markers = {'gradlew', 'mvnw', '.git', 'pom.xml', 'build.gradle'}
             local root_dir = require('jdtls.setup').find_root(root_markers)
             -- Eclipse workspace location
             local workspace_folder = "/Users/lukasdownes/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
-            local lsp_install_location = "/Users/lukasdownes/.local/share/nvim/mason/packages/jdtls"
+            local plugin_install_location = "/Users/lukasdownes/.local/share/nvim/mason/packages/"
+            local bundles = {
+                vim.fn.glob(plugin_install_location .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
+            }
+
+            vim.list_extend(bundles, vim.split(vim.fn.glob(plugin_install_location .. "/java-test/extension/server/*.jar", true), "\n"))
+
             local config = {
                 -- Language server settings
                 root_dir = root_dir,
@@ -28,8 +55,8 @@ return {
                     "--add-modules=ALL-SYSTEM",
                     "--add-opens", "java.base/java.util=ALL-UNNAMED",
                     "--add-opens", "java.base/java.lang=ALL-UNNAMED",
-                    "-jar", vim.fn.glob(lsp_install_location .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
-                    "-configuration", lsp_install_location .. "/config_mac",
+                    "-jar", vim.fn.glob(plugin_install_location .. "/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+                    "-configuration", plugin_install_location .. "/jdtls/config_mac",
                     "-data", workspace_folder
                 },
                 settings = {
@@ -37,7 +64,7 @@ return {
                         format = {
                             settings = {
                                 url = "/Users/lukasdownes/Documents/eclipse-format.xml",
-                                profile = "Timefold", -- or your custom profile name
+                                profile = "Quarkus",
                             },
                         },
                         completion = {
@@ -81,6 +108,7 @@ return {
                 -- Server capabilities
                 capabilities = require('cmp_nvim_lsp').default_capabilities(),
 
+
                 -- Key mappings
                 on_attach = function(client, bufnr)
                     local opts = { buffer = bufnr, silent = true }
@@ -107,7 +135,16 @@ return {
                     vim.keymap.set('v', '<leader>jm', "<cmd>lua require('jdtls').extract_method(true)<CR>", opts)
                     vim.keymap.set('n', '<leader>jt', "<cmd>lua require('jdtls').test_class()<CR>", opts)
                     vim.keymap.set('n', '<leader>jn', "<cmd>lua require('jdtls').test_nearest_method()<CR>", opts)
+
+                    require("jdtls").setup_dap { hotcodereplace = "auto" }
+                    require("jdtls.dap").setup_dap_main_class_configs()
                 end,
+
+                -- debugging
+                init_options = {
+                    bundles = bundles,
+                },
+
             }
             -- Start or attach to language server
             jdtls.start_or_attach(config)
@@ -117,36 +154,8 @@ return {
         dependencies = {
             "hrsh7th/nvim-cmp",
             "hrsh7th/cmp-nvim-lsp",
+            "mfussenegger/nvim-dap",
+            "rcarriga/nvim-dap-ui",
         },
     },
-    {
-        "rcasia/neotest-java",
-        ft = "java",
-        dependencies = {
-            "mfussenegger/nvim-jdtls",
-            "mfussenegger/nvim-dap", -- for the debugger
-            "rcarriga/nvim-dap-ui", -- recommended
-            "theHamsta/nvim-dap-virtual-text", -- recommended
-        },
-    },
-    {
-        "nvim-neotest/neotest",
-        dependencies = {
-            "nvim-neotest/nvim-nio",
-            "nvim-lua/plenary.nvim",
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        config = function()
-            local neotest = require("neotest")
-            neotest.setup({
-                adapters = {
-                    require("neotest-java")({
-                    }),
-                },
-            })
-            vim.keymap.set("n", "<leader>jt", "<cmd>lua require('neotest').run.run()<cr>")
-
-        end,
-    }
 }
