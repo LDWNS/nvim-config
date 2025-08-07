@@ -29,14 +29,16 @@ return {
 				-- `false` will disable the whole extension
 				enable = true,
 				disable = function(lang, buf)
-					if lang == "html" then
-						print("disabled")
-						return true
-					end
+					-- if lang == "html" then
+					-- 	print("disabled")
+					-- 	return true
+					-- end
 
 					local max_filesize = 100 * 1024 -- 100 KB
-					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-					if ok and stats and stats.size > max_filesize then
+                    local fileName = vim.api.nvim_buf_get_name(buf)
+					local ok, stats = pcall(vim.uv.fs_stat, fileName)
+                    -- disable for large files, except files with "ConstraintProvider" in the name
+					if ok and stats and stats.size > max_filesize and not string.find(fileName, "ConstraintProvider") then
 						vim.notify(
 							"File larger than 100KB treesitter disabled for performance",
 							vim.log.levels.WARN,
@@ -55,7 +57,7 @@ return {
 
 			rainbow = {
 				enable = true,
-				disable = { "html" },
+				-- disable = { "html" },
 				extended_mode = false,
 				max_file_lines = nil,
 			},
