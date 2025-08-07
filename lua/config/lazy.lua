@@ -25,14 +25,7 @@ vim.g.maplocalleader = "\\"
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.opt.nu = true
-vim.opt.relativenumber = true
-
---vim.opt.guicursor = ""
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.opt.rnu = true
 
 vim.opt.smartindent = true
 
@@ -43,14 +36,19 @@ vim.opt.backup = false
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
 
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 12
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 421
+vim.opt.updatetime = 4200
+
+vim.opt.winborder = "rounded"
+-- vim.opt.winpadding = 2
 
 vim.keymap.set("n", "]d", function()
     vim.diagnostic.jump({count = 1, float = true})
@@ -62,7 +60,22 @@ end
 )
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
---vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "120"
+
+-- set colorscheme depending on OS
+local os = vim.uv.os_uname().sysname
+local theme = "tokyonight"
+if (os == "Darwin") then
+    -- execute command to get the theme
+    local fh, er = assert(io.popen("defaults read -g AppleInterfaceStyle","r"))
+    local temp = fh:read("*a")
+    fh:close()
+    if (temp == nil or temp == "") then
+        theme = "github_light"
+    elseif (temp == "Dark") then
+        theme = "github_dark_tritanopia"
+    end
+end
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -72,7 +85,7 @@ require("lazy").setup({
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "tokyonight" } },
+	install = { colorscheme = { theme } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
 })
