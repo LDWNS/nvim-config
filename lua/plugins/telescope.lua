@@ -16,6 +16,7 @@ return {
         keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
         keymap.set('n', '<leader>fs', builtin.git_status, { desc = 'Telescope git status' })
         keymap.set('n', '<leader>fc', builtin.git_commits, { desc = 'Telescope git commits' })
+        keymap.set('n', '<leader>fi', builtin.git_files, { desc = 'Telescope git files: ignores .gitignore items' })
     end,
 }
 
