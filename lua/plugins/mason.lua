@@ -33,6 +33,8 @@ return {
                     "prettier",
                     "stylua",
                     "eslint_d",
+                    "java-debug-adapter",
+                    "java-test",
                 },
             })
         end,
