@@ -30,8 +30,8 @@ return {
                 if (theme == "Dark") then
                     -- vim.cmd("colorscheme github_dark_colorblind")
                     -- vim.cmd("colorscheme github_dark")
-                    -- vim.cmd("colorscheme github_dark_tritanopia")
-                    vim.cmd("colorscheme github_dark_default")
+                    vim.cmd("colorscheme github_dark_tritanopia")
+                    -- vim.cmd("colorscheme github_dark_default")
 
                 else
                     vim.cmd("colorscheme github_light")
