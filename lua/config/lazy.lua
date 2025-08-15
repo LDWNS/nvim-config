@@ -1,17 +1,17 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-			{ out, "WarningMsg" },
-			{ "\nPress any key to exit..." },
-		}, true, {})
-		vim.fn.getchar()
-		os.exit(1)
-	end
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
+        }, true, {})
+        vim.fn.getchar()
+        os.exit(1)
+    end
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -42,7 +42,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 
 -- backups
-vim.opt.swapfile= false
+vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- search
@@ -67,7 +67,7 @@ vim.opt.winborder = "rounded"
 
 -- go to next diagnostic
 vim.keymap.set("n", "]d", function()
-    vim.diagnostic.jump({count = 1, float = true})
+    vim.diagnostic.jump({ count = 1, float = true })
 end
 )
 
@@ -80,13 +80,26 @@ end
 --escape term mode
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 
+-- LSP keybindings
+--- @type vim.keymap.set.Opts
+local opts = { silent = true, nowait = true }
+vim.keymap.set("n", "fo", vim.lsp.buf.format, opts)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+vim.keymap.set("n", "<C-i>", vim.lsp.buf.signature_help, opts)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 
 -- set colorscheme depending on OS
 local os = vim.uv.os_uname().sysname
 local theme = "tokyonight"
 if (os == "Darwin") then
     -- execute command to get the theme
-    local fh, er = assert(io.popen("defaults read -g AppleInterfaceStyle","r"))
+    local fh, er = assert(io.popen("defaults read -g AppleInterfaceStyle", "r"))
     local temp = fh:read("*a")
     fh:close()
     if (temp == nil or temp == "") then
@@ -98,13 +111,13 @@ end
 
 -- Setup lazy.nvim
 require("lazy").setup({
-	spec = {
-		-- import your plugins
-		{ import = "plugins" },
-	},
-	-- Configure any other settings here. See the documentation for more details.
-	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { theme } },
-	-- automatically check for plugin updates
-	checker = { enabled = true },
+    spec = {
+        -- import your plugins
+        { import = "plugins" },
+    },
+    -- Configure any other settings here. See the documentation for more details.
+    -- colorscheme that will be used when installing plugins.
+    install = { colorscheme = { theme } },
+    -- automatically check for plugin updates
+    checker = { enabled = true },
 })
