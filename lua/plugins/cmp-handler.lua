@@ -16,6 +16,8 @@ return {
 		"rafamadriz/friendly-snippets",
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 	},
+    ---@module "cmp"
+    ---@type cmp.Config
 	config = function()
 		local cmp = require("cmp")
 		local lspkind = require("lspkind")
