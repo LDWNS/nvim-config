@@ -1,5 +1,3 @@
---k ~/nvim/lua/slydragonn/plugins/formatter.lua
-
 return {
 	"stevearc/conform.nvim",
 	event = { "BufReadPre", "BufNewFile" },
