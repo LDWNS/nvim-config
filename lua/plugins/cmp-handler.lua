@@ -16,6 +16,7 @@ return {
 		"rafamadriz/friendly-snippets",
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 	},
+    // todo: merge lazydev cmp config and this cmp config
     ---@module "cmp"
     ---@type cmp.Config
 	config = function()
@@ -37,7 +38,6 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				--{ name = "luasnip" },
 				{ name = "buffer" },
 				{ name = "path" },
 			}),
