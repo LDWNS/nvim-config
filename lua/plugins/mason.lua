@@ -25,6 +25,7 @@ return {
                     "jsonls",
                     "tailwindcss",
                     "jdtls",
+                    "marksman",
                 },
             })
 
