@@ -16,7 +16,7 @@ return {
 		"rafamadriz/friendly-snippets",
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 	},
-    // todo: merge lazydev cmp config and this cmp config
+    -- todo: merge lazydev cmp config and this cmp config
     ---@module "cmp"
     ---@type cmp.Config
 	config = function()
