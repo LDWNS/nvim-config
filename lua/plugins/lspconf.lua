@@ -100,6 +100,12 @@ return {
                     capabilities = capabilities,
                 })
             end,
+            ["marksman"] = function()
+                nvim_lsp["marksman"].setup({
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                })
+            end,
 		})
 	end,
 }
