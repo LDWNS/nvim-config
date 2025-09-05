@@ -9,12 +9,10 @@ return {
             require("mason").setup({
                 registries = {
                     "github:mason-org/mason-registry",
-                    "github:mkindberg/ghostty-ls"
                 }
             })
 
             require("mason-lspconfig").setup({
-                automatic_installation = true,
                 ensure_installed = {
                     "cssls",
                     "eslint",
@@ -40,5 +38,4 @@ return {
             })
         end,
     },
-    {"mkindberg/ghostty-ls", config = true},
 }
