@@ -26,4 +26,8 @@ I use some plugins but try to keep it minimal.
 - [./lua/plugins/telescope](https://github.com/)
 
 ### To do:
-* merge cmp-handler && lazydev
+* fork [markdown-preview](https://github.com/iamcco/markdown-preview.nvim) and add plugins
+    * [markdown-it](https://github.com/markdown-it/markdown-it?tab=readme-ov-file) plugins
+    * GeoJSON plugins??
+* add mappings
+    * nzzzv/Nzzzv
