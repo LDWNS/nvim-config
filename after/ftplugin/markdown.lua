@@ -1,6 +1,5 @@
 vim.cmd([[
-    set conceallevel=2
-    setlocal formatoptions+=t
+    set conceallevel=1
     setlocal textwidth=80
     setlocal linebreak
     setlocal wrap
