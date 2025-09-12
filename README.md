@@ -29,5 +29,3 @@ I use some plugins but try to keep it minimal.
 * fork [markdown-preview](https://github.com/iamcco/markdown-preview.nvim) and add plugins
     * [markdown-it](https://github.com/markdown-it/markdown-it?tab=readme-ov-file) plugins
     * GeoJSON plugins??
-* add mappings
-    * nzzzv/Nzzzv
