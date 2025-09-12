@@ -1,0 +1,16 @@
+return {
+  timefoldemployeescheduling = "ESS",
+  timefoldfieldservicerouting = "FSR",
+  orderfulfillmentrouting = "OFR",
+  timefoldci = "CI",
+  timefoldfrontend = "tf-frontend",
+  timefoldjobscheduling = "JS",
+  timefoldlongtermmachinejobscheduling = "LTMJS",
+  timefoldmodelssdk = "SDK",
+  timefoldmodelssdkenterprise = "SDKE", 
+  timefoldorbit = "orbit",
+  timefoldpickupdeliveryrouting = "PDR",
+  timefoldpresentations = "tf-pres",
+  timefoldsolver = "SOL",
+  timefoldsolverenterprise = "SOLE",
+}
