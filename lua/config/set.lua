@@ -46,9 +46,11 @@ local getTitle = function()
   local cwdSubbed = cwd:gsub("-", "")
   local shortpath = shortpaths[cwdSubbed]
   if shortpath then
-    return shortpath
+    return "[" .. shortpath .. "]"
   end
-  return "⌘ " .. cwd
+  -- add neovim logo to title
+  --                                       
+  return cwd .. " ⛺︎"
 end
 
-vim.opt.titlestring = "[" .. getTitle() .. "]"
+vim.opt.titlestring = getTitle()
