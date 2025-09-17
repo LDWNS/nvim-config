@@ -12,7 +12,7 @@ return {
 			typescriptreact = { "prettier" },
 			css = { "prettier" },
 			html = { "prettier" },
-			json = { "prettier" },
+			json = { "jq" },
 			yaml = { "prettier" },
 			markdown = { "prettier" },
 			lua = { "stylua" },
@@ -22,8 +22,9 @@ return {
 		format_on_save = { timeout_ms = 500 },
 		-- Customize formatters
 		formatters = {
-			shfmt = {
-				prepend_args = { "-i", "2" },
+			jq = {
+        command = "jq",
+        args = { "." },
 			},
 		},
 	},

@@ -2,6 +2,8 @@
 This is my Neovim config.
 I use some plugins but try to keep it minimal.
 
+sup<sup>sup</sup>
+
 ## Plugins
 ### Active
 - [./lua/plugins/cmp-handler.lua](https://github.com/hrsh7th/nvim-cmp)
@@ -20,6 +22,9 @@ I use some plugins but try to keep it minimal.
 - [./lua/plugins/supermaven](https://github.com/supermaven-inc/supermaven-nvim)
 - [./lua/plugins/treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [./lua/plugins/trouble](https://github.com/folke/trouble.nvim)
+- [-] and some more?
+- [ ] does this...
+- [x] work?
 
 ### Inactive 
 - [./lua/plugins/pretty_hover](https://github.com/)

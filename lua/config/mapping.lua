@@ -25,9 +25,8 @@ end
 set("t", "<Esc>", "<C-\\><C-n>")
 
 -- LSP keybindings
---- @type set.Opts
+--- @type vim.keymap.set.Opts
 local opts = { silent = true, nowait = true }
-set("n", "fo", vim.lsp.buf.format, opts)
 set("n", "gD", vim.lsp.buf.declaration, opts)
 set("n", "gd", vim.lsp.buf.definition, opts)
 set("n", "K", vim.lsp.buf.hover, opts)
@@ -35,6 +34,7 @@ set("n", "gi", vim.lsp.buf.implementation, opts)
 set("n", "<C-i>", vim.lsp.buf.signature_help, opts)
 set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+set("n", "<leader>fo", vim.lsp.buf.format, opts)
 
 
 
