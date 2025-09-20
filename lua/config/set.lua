@@ -48,9 +48,18 @@ local getTitle = function()
   if shortpath then
     return "[" .. shortpath .. "]"
   end
-  -- add neovim logo to title
-  --                                       
-  return cwd .. " ⛺︎"
+  -- add neovim logo to title and ghostty logo
+  --    ⛺︎                                   
+  --                                      
+  --                                      
+  --                                      
+  --                                      
+  --                                      
+  --                                      
+  --                                      
+  --                                      
+  --                                     
+  return " " .. cwd
 end
 
 vim.opt.titlestring = getTitle()
