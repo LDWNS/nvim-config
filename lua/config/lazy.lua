@@ -16,32 +16,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
--- set colorscheme depending on OS
-local os = vim.uv.os_uname().sysname
-local theme = "github_dark_tritanopia"
-if (os == "Darwin") then
-  -- execute command to get the theme
-  local fh, er = assert(io.popen("defaults read -g AppleInterfaceStyle", "r"))
-  local temp = fh:read("*a")
-  fh:close()
-  if (temp == nil or temp == "") then
-    theme = "github_light"
-  elseif (temp == "Dark") then
-    theme = "github_dark_tritanopia"
-  end
-  vim.notify(
-    "[" .. os .. "] theme: " .. theme,
-    vim.log.levels.INFO,
-    { title = "Me!" }
-  )
-end
-
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
     { import = "plugins" },
   },
-  install = { colorscheme = { theme } },
+  install = { colorscheme = { "leaf" } },
   -- automatically check for plugin updates
   checker = {
     enabled = true,

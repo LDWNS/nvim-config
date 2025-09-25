@@ -4,9 +4,13 @@ return {
   opts = {},
   config = function()
     require('render-markdown').setup({
+      code = {
+        border = "thin",
+        disable_background = true,
+      },
       heading = {
         -- Turn on / off heading icon & background rendering.
-        enabled = true,
+        enabled = false,
         atx = true,
         setext = true,
         sign = true,
@@ -21,10 +25,5 @@ return {
         width = 'block',
       },
     })
-    vim.api.nvim_set_hl(0, 'RenderMarkdownH1Bg', { bg = '#333333', fg = '#EE6352' })
-    vim.api.nvim_set_hl(0, 'RenderMarkdownH2Bg', { bg = '#333333', fg = '#59CD90' })
-    vim.api.nvim_set_hl(0, 'RenderMarkdownH3Bg', { bg = '#333333', fg = '#3FA7D6' })
-    vim.api.nvim_set_hl(0, 'RenderMarkdownH4Bg', { bg = '#333333', fg = '#F8A20E' })
-    vim.api.nvim_set_hl(0, 'RenderMarkdownH5Bg', { bg = '#333333', fg = '#F57E5E' })
   end,
 }

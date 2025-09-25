@@ -7,6 +7,7 @@ return {
             "css",
             "lua",
             "javascript",
+            "conf",
             html = { mode = "foreground" },
         },
     },
