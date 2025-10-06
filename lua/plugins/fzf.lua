@@ -20,14 +20,7 @@ return {
       }
     end,
     config = function()
-      local fzf = require("fzf-lua")
-      fzf.setup({
-        actions = {
-          files = {
-            ["ctrl-h"] = fzf.actions.toggle_hidden,
-            ["ctrl-i"] = fzf.actions.toggle_ignore,
-          },
-        },
+      require("fzf-lua").setup({
         previewers = {
           builtin = {
             snacks_image = { enabled = true, render_inline = false },
