@@ -24,13 +24,13 @@ return {
                     "tailwindcss",
                     "jdtls",
                     "marksman",
+                    "lemminx",
                 },
             })
 
             require("mason-tool-installer").setup({
                 ensure_installed = {
                     "prettier",
-                    "stylua",
                     "eslint_d",
                     "java-debug-adapter",
                     "java-test",

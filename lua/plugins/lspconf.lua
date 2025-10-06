@@ -24,6 +24,12 @@ return {
         }
       },
       handlers = {
+        ["lemminx"] = function(server)
+          nvim_lsp[server].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+          })
+        end,
         ["nvim_lsp"] = function(server)
           nvim_lsp[server].setup({
             capabilities = capabilities,
