@@ -20,14 +20,21 @@ return {
       }
     end,
     config = function()
-      require("fzf-lua").setup({
+      local fzf = require("fzf-lua")
+      fzf.setup({
+        actions = {
+          files = {
+            ["ctrl-h"] = fzf.actions.toggle_hidden,
+            ["ctrl-i"] = fzf.actions.toggle_ignore,
+          },
+        },
         previewers = {
           builtin = {
             snacks_image = { enabled = true, render_inline = false },
             render_markdown = { enabled = true, filetypes = { ["markdown"] = true } },
             extensions = {
               ["png"] = { "viu", "-b" },
-              ["svg"] = { "chafa", "{file}" },
+              ["svg"] = { "chafa" },
               ["jpg"] = { "ueberzug" },
             }
           }

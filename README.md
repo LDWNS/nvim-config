@@ -2,8 +2,6 @@
 This is my Neovim config.
 I use some plugins but try to keep it minimal.
 
-sup<sup>sup</sup>
-
 ## Plugins
 ### Active
 - [./lua/plugins/cmp-handler.lua](https://github.com/hrsh7th/nvim-cmp)

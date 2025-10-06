@@ -32,13 +32,13 @@ return {
 					-- 	return true
 					-- end
 
-					local max_filesize = 100 * 1024 -- 100 KB
+					local max_filesize = 200 * 1024 -- 200 KB
                     local fileName = vim.api.nvim_buf_get_name(buf)
 					local ok, stats = pcall(vim.uv.fs_stat, fileName)
                     -- disable for large files, except files with "ConstraintProvider" in the name
 					if ok and stats and stats.size > max_filesize and not string.find(fileName, "ConstraintProvider") then
 						vim.notify(
-							"File larger than 100KB treesitter disabled for performance",
+							"File larger than 200KB treesitter disabled for performance",
 							vim.log.levels.WARN,
 							{ title = "Treesitter" }
 						)
