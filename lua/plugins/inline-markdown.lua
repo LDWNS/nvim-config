@@ -5,22 +5,11 @@ return {
   config = function()
     require('render-markdown').setup({
       code = {
-        border = "thin",
-        disable_background = true,
+        border = "thick"
       },
       heading = {
-        -- Turn on / off heading icon & background rendering.
-        enabled = false,
-        atx = true,
-        setext = true,
-        sign = true,
-        icons = { '󰫎 ' },
-        left_pad = 0,
-        right_pad = 1,
-        left_margin = 0,
-        position = 'overlay',
-        -- Added to the sign column if enabled.
-        signs = {},
+        icons = { '󰫎 ', '2󰫎 ', '3󰫎 ', '4󰫎 ', '5󰫎 ', '6󰫎 ' },
+        position = 'inline',
         -- Width of the heading background.
         width = 'block',
       },
