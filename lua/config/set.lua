@@ -1,8 +1,3 @@
---vim.g.autoformat = failsafe
-
---maybe not needed
---vim.opt.formatoptions = "t"
-
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -37,9 +32,13 @@ vim.opt.isfname:append("@-@")
 -- nice border around windows
 vim.opt.winborder = "rounded"
 
+-- custom aliases
+vim.api.nvim_create_user_command("Gpr", "Git pull --rebase origin main", {})
+vim.api.nvim_create_user_command("Gs", "Git status -sb", {})
+vim.api.nvim_create_user_command("Gpf", "Git push --force", {})
+
 -- set title
 vim.opt.title = true
-
 local shortpaths = require("config.shortpaths")
 local getTitle = function()
   local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
