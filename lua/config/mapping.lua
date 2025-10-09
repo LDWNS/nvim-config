@@ -33,7 +33,8 @@ set("n", "K", vim.lsp.buf.hover, opts)
 set("n", "gi", vim.lsp.buf.implementation, opts)
 set("n", "<C-i>", vim.lsp.buf.signature_help, opts)
 set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+-- replaced with fzf
+-- set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 set("n", "<leader>fo", vim.lsp.buf.format, opts)
 
 
