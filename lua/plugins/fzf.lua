@@ -23,6 +23,9 @@ return {
     end,
     config = function()
       require("fzf-lua").setup({
+        grep = {
+          hidden = true,
+        },
         previewers = {
           builtin = {
             snacks_image = { enabled = true, render_inline = false },

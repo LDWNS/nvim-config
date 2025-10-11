@@ -13,4 +13,5 @@ return {
   timefoldpresentations = "tf-pres",
   timefoldsolver = "SOL",
   timefoldsolverenterprise = "SOLE",
+  timefoldsandbox = "SDBX",
 }
