@@ -21,7 +21,6 @@ vim.opt.smartcase = true
 
 -- colours
 vim.opt.termguicolors = true
-vim.opt.colorcolumn = "120"
 
 vim.opt.scrolloff = 12
 vim.opt.signcolumn = "yes"
@@ -45,7 +44,7 @@ local getTitle = function()
   local cwdSubbed = cwd:gsub("-", "")
   local shortpath = shortpaths[cwdSubbed]
   if shortpath then
-    return "[" .. shortpath .. "]"
+    return " " .. shortpath
   end
   -- add neovim logo to title and ghostty logo
   --    ⛺︎                                   
