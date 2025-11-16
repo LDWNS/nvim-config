@@ -8,6 +8,16 @@ return {
       "lua",
       "javascript",
       "conf",
+      "css",
+      "javascript",
+      conf = {
+        mode = "foreground",
+        rgb_fn = true,
+      },
+      hyprlang = {
+        mode = "foreground",
+        rgb_fn = true,
+      }, 
       html = { mode = "foreground" },
     },
   },
