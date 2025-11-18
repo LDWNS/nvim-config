@@ -16,6 +16,9 @@ local function enableJDTLS()
     capabilities = capabilities,
     settings = {
       java = {
+        test = {
+          defaultConfig = "quarkus",
+        },
         format = {
           settings = {
             url = "/Users/lukasdownes/Documents/eclipse-format.xml",
@@ -58,7 +61,7 @@ local function enableJDTLS()
         },
         signatureHelp = { enabled = true },
         contentProvider = { preferred = "fernflower" },
-
+        init_options = bundles,
       },
     },
   })
