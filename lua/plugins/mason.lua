@@ -18,8 +18,8 @@ return {
         -- tools
         "prettier",
         "eslint_d",
-        "java_debug_adapter",
-        "java_test"
+        "java-debug-adapter",
+        "java-test"
       },
     },
     dependencies = {
