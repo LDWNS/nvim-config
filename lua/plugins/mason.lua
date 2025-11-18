@@ -1,26 +1,31 @@
 return {
   {
-    "williamboman/mason.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
     opts = {
       ensure_installed = {
         -- lsps
-          "cssls",
-          "eslint",
-          "html",
-          "ts_ls",
-          "lua_ls",
-          "bashls",
-          "jsonls",
-          "tailwindcss",
-          "jdtls",
-          "marksman",
-          "lemminx",
+        "cssls",
+        "eslint",
+        "html",
+        "ts_ls",
+        "lua_ls",
+        "bashls",
+        "jsonls",
+        "tailwindcss",
+        "jdtls",
+        "marksman",
+        "lemminx",
         -- tools
-          "prettier",
-          "eslint_d",
-          "java-debug-adapter",
-          "java-test",
+        "prettier",
+        "eslint_d",
+        "java_debug_adapter",
+        "java_test"
       },
     },
-  },
+    dependencies = {
+      "mason-org/mason-lspconfig.nvim",
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  }
 }
