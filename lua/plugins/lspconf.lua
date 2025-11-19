@@ -1,7 +1,7 @@
 local function enableJDTLS()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
   -- Eclipse workspace location
-  local plugin_install_location = "/Users/lukasdownes/.local/share/nvim/mason/packages/"
+  local plugin_install_location = "/Users/lukasdownes/.local/share/nvim/mason/packages"
   local bundles = {
     vim.fn.glob(
       plugin_install_location .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
@@ -78,7 +78,7 @@ return {
   config = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     local servers = {
-      "lemminx", "nvim_lsp", "lua_ls",
+      "lemminx", "lua_ls",
       "bashls", "cssls", "tailwindcss",
       "tailwindcss", "html", "ts_ls",
       "jsonls", "eslint", "yamlls",
@@ -92,6 +92,6 @@ return {
       vim.lsp.enable(server)
     end
 
-    enableJDTLS()
+    -- enableJDTLS()
   end,
 }
