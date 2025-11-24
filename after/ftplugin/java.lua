@@ -27,9 +27,6 @@ for _, java_test_jar in ipairs(java_test_bundles) do
     table.insert(bundles, java_test_jar)
   end
 end
-for _, x in ipairs(java_test_bundles) do
-  print(x)
-end
 local config = {
   name = "jdtls",
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
