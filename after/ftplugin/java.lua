@@ -16,7 +16,7 @@ local bundles = {
     true)
 }
 
-local java_test_bundles = vim.split(vim.fn.glob("/java-test/extension/server/*.jar", true), "\n")
+local java_test_bundles = vim.split(vim.fn.glob(plugin_install_location .. "/java-test/extension/server/*.jar", true), "\n")
 local excluded = {
   "com.microsoft.java.test.runner-jar-with-dependencies.jar",
   "jacocoagent.jar",
@@ -27,7 +27,9 @@ for _, java_test_jar in ipairs(java_test_bundles) do
     table.insert(bundles, java_test_jar)
   end
 end
-
+for _, x in ipairs(java_test_bundles) do
+  print(x)
+end
 local config = {
   name = "jdtls",
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
