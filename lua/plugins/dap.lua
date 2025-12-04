@@ -2,9 +2,9 @@ return {
   {
     "mfussenegger/nvim-dap",
     keys = {
-      { "<leader>db", "<cmd>DapToggleBreakpoint<CR>", "DAP toggle breakpoint" },
-      { "<leader>dc", "<cmd>DapContinue<CR>", "DAP Continue" },
-      { "<leader>dv", "<cmd>DapViewToggle<CR>", "DAP View Toggle" }
+      { "<leader>db", "<cmd>DapToggleBreakpoint<CR>", desc = "DAP toggle breakpoint" },
+      { "<leader>dc", "<cmd>DapContinue<CR>", desc = "DAP Continue" },
+      { "<leader>dv", "<cmd>DapViewToggle<CR>", desc = "DAP View Toggle" }
     },
     dependencies = {
       "theHamsta/nvim-dap-virtual-text",

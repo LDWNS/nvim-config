@@ -9,16 +9,16 @@ return {
     keys = function()
       local fzf = require("fzf-lua")
       return {
-        { '<leader>ff', fzf.files },
-        { '<leader>fg', fzf.live_grep },
-        { '<leader>fb', fzf.buffers },
-        { '<leader>fh', fzf.help_tags },
-        { '<leader>fs', fzf.git_status },
-        { '<leader>fc', fzf.git_commits },
-        { '<leader>fi', fzf.git_files },
-        { '<leader>gr', fzf.lsp_references },
-        { '<leader>ca', fzf.lsp_code_actions, { silent = true, mode = { "n", "v" } } },
-        { '<leader>fb', fzf.manpages },
+        { '<leader>ff', fzf.files,            desc = "Fzf: files" },
+        { '<leader>fg', fzf.live_grep,        desc = "Fzf: grep" },
+        { '<leader>fb', fzf.buffers,          desc = "Fzf: buffers" },
+        { '<leader>fh', fzf.help_tags,        desc = "Fzf: vim help" },
+        { '<leader>fs', fzf.git_status,       desc = "Fzf: status" },
+        { '<leader>fc', fzf.git_commits,      desc = "Fzf: commits" },
+        { '<leader>fi', fzf.git_files,        desc = "Fzf: git files" },
+        { '<leader>gr', fzf.lsp_references,   desc = "Fzf: lsp refs" },
+        { '<leader>ca', fzf.lsp_code_actions, desc = "Fzf: lsp code actions", silent = true, mode = { "n", "v" } },
+        { '<leader>fb', fzf.manpages,         desc = "Fzf: man" },
       }
     end,
     config = function()
@@ -38,6 +38,7 @@ return {
           }
         }
       })
+      require("fzf-lua").register_ui_select()
     end,
     opts = {}
   }

@@ -1,11 +1,11 @@
 local set = require("vim.keymap").set
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-set("n", "<leader>pv", vim.cmd.Ex)
+set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
 
 -- nice to haves
-set("n", "n", "nzzzv", { silent = true })
-set("n", "N", "Nzzzv", { silent = true })
+set({ "n", "v" }, "n", "nzzzv", { silent = true })
+set({ "n", "v" }, "N", "Nzzzv", { silent = true })
 set("n", "*", "*zzzv", { silent = true })
 set("n", "#", "#zzzv", { silent = true })
 
