@@ -4,20 +4,20 @@ vim.g.maplocalleader = "\\"
 set("n", "<leader>pv", vim.cmd.Ex)
 
 -- nice to haves
-set("n", "n", "nzzzv", {silent = true})
-set("n", "N", "Nzzzv", {silent = true})
-set("n", "*", "*zzzv", {silent = true})
-set("n", "#", "#zzzv", {silent = true})
+set("n", "n", "nzzzv", { silent = true })
+set("n", "N", "Nzzzv", { silent = true })
+set("n", "*", "*zzzv", { silent = true })
+set("n", "#", "#zzzv", { silent = true })
 
 -- go to next diagnostic
 set("n", "]d", function()
-    vim.diagnostic.jump({ count = 1, float = true })
+  vim.diagnostic.jump({ count = 1, float = true })
 end
 )
 
 --go to previous diagnostic
 set("n", "[d", function()
-    vim.diagnostic.jump({ count = -1, float = true })
+  vim.diagnostic.jump({ count = -1, float = true })
 end
 )
 
@@ -25,17 +25,21 @@ end
 set("t", "<Esc>", "<C-\\><C-n>")
 
 -- LSP keybindings
---- @type vim.keymap.set.Opts
-local opts = { silent = true, nowait = true }
-set("n", "gD", vim.lsp.buf.declaration, opts)
-set("n", "gd", vim.lsp.buf.definition, opts)
-set("n", "K", vim.lsp.buf.hover, opts)
-set("n", "gi", vim.lsp.buf.implementation, opts)
-set("n", "<C-i>", vim.lsp.buf.signature_help, opts)
-set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+local function get_opts(desc)
+  --- @type vim.keymap.set.Opts
+  local opts = { silent = true, nowait = true }
+  opts.desc = desc
+  return opts
+end
+set("n", "gd", vim.lsp.buf.definition, get_opts("gt definition"))
+set("n", "gD", vim.lsp.buf.declaration, get_opts("gt declaration"))
+set("n", "K", vim.lsp.buf.hover, get_opts())
+set("n", "gi", vim.lsp.buf.implementation, get_opts("gt implementation"))
+set("n", "<C-i>", vim.lsp.buf.signature_help, get_opts())
+set("n", "<leader>rn", vim.lsp.buf.rename, get_opts("rename"))
 -- replaced with fzf
 -- set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-set("n", "<leader>fo", vim.lsp.buf.format, opts)
+set("n", "<leader>fo", vim.lsp.buf.format, get_opts("format"))
 
 
 
@@ -49,4 +53,3 @@ set("n", "<CR>", function()
     return vim.keycode("<CR>")
   end
 end, { expr = true })
-

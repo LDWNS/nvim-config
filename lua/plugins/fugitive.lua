@@ -4,8 +4,8 @@ return {
   opt = {},
   keys = function()
     return {
-      { "<leader>gs", vim.cmd.Git },
-      { "<leader>gd", vim.cmd.Gdiff },
+      { "<leader>gs", vim.cmd.Git,   desc = "Git status" },
+      { "<leader>gd", vim.cmd.Gdiff, desc = "Git diff" },
     }
   end,
 }

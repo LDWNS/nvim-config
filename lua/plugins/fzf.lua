@@ -17,7 +17,7 @@ return {
         { '<leader>fc', fzf.git_commits },
         { '<leader>fi', fzf.git_files },
         { '<leader>gr', fzf.lsp_references },
-        { '<leader>ca', fzf.lsp_code_actions, { silent = true } },
+        { '<leader>ca', fzf.lsp_code_actions, { silent = true, mode = { "n", "v" } } },
         { '<leader>fb', fzf.manpages },
       }
     end,
