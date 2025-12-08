@@ -12,11 +12,11 @@ return {
       "javascript",
       conf = {
         mode = "foreground",
-        rgb_fn = true,
+        css_fn = true,
       },
       hyprlang = {
         mode = "foreground",
-        rgb_fn = true,
+        css_fn = true,
       }, 
       html = { mode = "foreground" },
     },

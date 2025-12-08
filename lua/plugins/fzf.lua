@@ -33,7 +33,7 @@ return {
             extensions = {
               ["png"] = { "viu", "-b" },
               ["svg"] = { "chafa" },
-              ["jpg"] = { "ueberzug" },
+              ["jpg"] = { "ueberzugpp" },
             }
           }
         }
