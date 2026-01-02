@@ -3,6 +3,11 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
+vim.g.disable_autoformat = true
+
+-- folds
+-- vim.opt.foldmethod = "indent"
+
 -- line numbers
 vim.opt.nu = true
 vim.opt.rnu = true
@@ -40,24 +45,24 @@ vim.api.nvim_create_user_command("Gpf", "Git push --force", {})
 vim.opt.title = true
 local shortpaths = require("config.shortpaths")
 local getTitle = function()
-  local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-  local cwdSubbed = cwd:gsub("-", "")
-  local shortpath = shortpaths[cwdSubbed]
-  if shortpath then
-    return " " .. shortpath
-  end
-  -- add neovim logo to title and ghostty logo
-  --    ⛺︎                                   
-  --                                      
-  --                                      
-  --                                      
-  --                                      
-  --                                      
-  --                                      
-  --                                      
-  --                                      
-  --                                      
-  return " " .. cwd
+    local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+    local cwdSubbed = cwd:gsub("-", "")
+    local shortpath = shortpaths[cwdSubbed]
+    if shortpath then
+        return " " .. shortpath
+    end
+    -- add neovim logo to title and ghostty logo
+    --    ⛺︎                                   
+    --                                      
+    --                                      
+    --                                      
+    --                                      
+    --                                      
+    --                                      
+    --                                      
+    --                                      
+    --                                     
+    return " " .. cwd
 end
 
 vim.opt.titlestring = getTitle()
