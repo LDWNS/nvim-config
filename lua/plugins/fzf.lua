@@ -23,10 +23,8 @@ return {
     end,
     config = function()
       require("fzf-lua").setup({
-        grep = {
-          hidden = true,
-        },
         previewers = {
+          git_diff = {},
           builtin = {
             snacks_image = { enabled = true, render_inline = false },
             render_markdown = { enabled = true, filetypes = { ["markdown"] = true } },
@@ -39,6 +37,9 @@ return {
         }
       })
       require("fzf-lua").register_ui_select()
+      local config = require("fzf-lua.config")
+      local actions = require("trouble.sources.fzf").actions
+      config.defaults.actions.files["ctrl-t"] = actions.open
     end,
     opts = {}
   }
