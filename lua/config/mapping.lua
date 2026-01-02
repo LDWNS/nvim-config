@@ -1,7 +1,8 @@
 local set = require("vim.keymap").set
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
+-- set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
+set("n", "<leader>pv", ":Oil<cr>", { desc = "Explore" })
 
 -- nice to haves
 set({ "n", "v" }, "n", "nzzzv", { silent = true })
@@ -39,9 +40,6 @@ set("n", "<C-i>", vim.lsp.buf.signature_help, get_opts())
 set("n", "<leader>rn", vim.lsp.buf.rename, get_opts("rename"))
 -- replaced with fzf
 -- set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-set("n", "<leader>fo", vim.lsp.buf.format, get_opts("format"))
-
-
 
 --searching
 set("n", "<CR>", function()
