@@ -9,14 +9,15 @@ vim.opt.expandtab = true
 vim.opt.formatoptions = "tjlr"
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-local plugin_install_location = "/Users/lukasdownes/.local/share/nvim/mason/packages"
+local plugin_install_location = vim.fn.expand("~/.local/share/nvim/mason/packages")
 local bundles = {
   vim.fn.glob(
     plugin_install_location .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar",
     true)
 }
 
-local java_test_bundles = vim.split(vim.fn.glob(plugin_install_location .. "/java-test/extension/server/*.jar", true), "\n")
+local java_test_bundles = vim.split(vim.fn.glob(plugin_install_location .. "/java-test/extension/server/*.jar", true),
+  "\n")
 local excluded = {
   "com.microsoft.java.test.runner-jar-with-dependencies.jar",
   "jacocoagent.jar",
@@ -27,6 +28,7 @@ for _, java_test_jar in ipairs(java_test_bundles) do
     table.insert(bundles, java_test_jar)
   end
 end
+
 local config = {
   name = "jdtls",
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
@@ -49,7 +51,7 @@ config.settings.java = {
   },
   format = {
     settings = {
-      url = "/Users/lukasdownes/Documents/eclipse-format.xml",
+      url = vim.fn.expand("~/Documents/eclipse-format.xml"),
       profile = "Quarkus",
     },
   },
