@@ -3,7 +3,7 @@ return {
   version = "*", -- recommended, use latest release instead of latest commit
   lazy = true,
   event = function()
-    local path = vim.fn.expand("~/Documents/personal/notes/") .. "V1/*.md"
+    local path = vim.fn.expand("~/Documents/personal/notes/") .. "V1/*"
     return {
       -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
       -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
