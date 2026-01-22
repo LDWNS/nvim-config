@@ -15,6 +15,7 @@ return {
         "jdtls",
         "marksman",
         "lemminx",
+        "gopls",
         -- tools
         "prettier",
         "eslint_d",

@@ -4,6 +4,9 @@ vim.g.maplocalleader = "\\"
 -- set("n", "<leader>pv", vim.cmd.Ex, { desc = "Explore" })
 set("n", "<leader>pv", ":Oil<cr>", { desc = "Explore" })
 
+set("n", "<leader>ww", ":w<cr>", { desc = "Write" })
+set("n", "<leader>wa", ":wa<cr>", { desc = "Write all" })
+
 -- nice to haves
 set({ "n", "v" }, "n", "nzzzv", { silent = true })
 set({ "n", "v" }, "N", "Nzzzv", { silent = true })
@@ -38,8 +41,6 @@ set("n", "K", vim.lsp.buf.hover, get_opts())
 set("n", "gi", vim.lsp.buf.implementation, get_opts("gt implementation"))
 set("n", "<C-i>", vim.lsp.buf.signature_help, get_opts())
 set("n", "<leader>rn", vim.lsp.buf.rename, get_opts("rename"))
--- replaced with fzf
--- set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
 --searching
 set("n", "<CR>", function()
@@ -51,3 +52,4 @@ set("n", "<CR>", function()
     return vim.keycode("<CR>")
   end
 end, { expr = true })
+
