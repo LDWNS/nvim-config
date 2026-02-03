@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 return {
   -- easily jump to any location and enhanced f/t motions for Leap
   {
@@ -15,7 +16,7 @@ return {
     },
   },
   {
-    "ggandor/leap.nvim",
+    url = "https://codeberg.org/andyg/leap.nvim",
     enabled = true,
     keys = {
       { "s", mode = { "n", "x", "o" }, desc = "Leap Forward to" },
