@@ -17,7 +17,7 @@ return {
         "lemminx",
         "gopls",
         -- tools
-        "prettier",
+        "prettierd",
         "eslint_d",
         "java-debug-adapter",
         "java-test"
