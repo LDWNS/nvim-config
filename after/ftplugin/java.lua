@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- todo: add the following xml files as vim settings
 -- <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="space"/>
 -- <setting id="org.eclipse.jdt.core.formatter.wrap_before_assignment_operator" value="false"/>
@@ -46,6 +47,22 @@ local config = {
 }
 
 config.settings.java = {
+  appendBuildErrors = true,
+  -- Ensure compiler warnings are enabled
+  errors = {
+    incompleteClasspath = "severe",
+  },
+  configuration = {
+    updateBuildConfiguration = "interactive",
+  },
+  compiler = {
+    complianceOptions = {
+      ["org.eclipse.jdt.core.compiler.problem.unusedLocalVariable"] = "warning",
+      ["org.eclipse.jdt.core.compiler.problem.unusedPrivateMember"] = "warning",
+      ["org.eclipse.jdt.core.compiler.problem.unusedParameter"] = "warning",
+      ["org.eclipse.jdt.core.compiler.problem.unusedImport"] = "warning",
+    }
+  },
   test = {
     defaultConfig = "quarkus",
   },
@@ -76,9 +93,6 @@ config.settings.java = {
   },
   maven = {
     downloadSources = true,
-  },
-  configuration = {
-    updateBuildConfiguration = "interactive",
   },
   implementationsCodeLens = {
     enabled = true,
