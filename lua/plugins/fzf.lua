@@ -23,8 +23,12 @@ return {
     end,
     config = function()
       require("fzf-lua").setup({
+        files = {
+          max_line_len = 10,
+          path_shorten = true,
+          formatter      = "path.dirname_first",
+        },
         previewers = {
-          git_diff = {},
           builtin = {
             snacks_image = { enabled = true, render_inline = false },
             render_markdown = { enabled = true, filetypes = { ["markdown"] = true } },
