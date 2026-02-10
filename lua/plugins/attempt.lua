@@ -17,10 +17,11 @@ return {
       dir = vim.fn.expand('~') .. "/.local/share/attempt.nvim",
       initial_content = {
       },
-      ext_options = { 'java', 'lua', 'js', 'py', 'sh', 'md', '' },
+      ext_options = { 'java', 'lua', 'js', 'go', 'sh', 'md', '' },
       format_opts = { [''] = '[None]' },
       run = {
         java = { 'w !java %' },
+        go = { 'w !go run %' }
       }
     }
   end,
