@@ -1,8 +1,11 @@
+---@diagnostic disable: missing-fields
 return {
   {
     "ibhagwan/fzf-lua",
+    lazy = true,
+    event = "BufReadPre",
     dependencies = {
-      "nvim-tree/nvim-web-devicons",
+      "nvim-mini/mini.icons",
       "folke/snacks.nvim",
       'MeanderingProgrammer/render-markdown.nvim',
     },
@@ -22,11 +25,29 @@ return {
       }
     end,
     config = function()
-      require("fzf-lua").setup({
+      local fzf = require("fzf-lua")
+
+      local trouble_actions = require("trouble.sources.fzf").actions
+      fzf.setup({
+        actions = {
+          files = {
+            -- default
+            ["enter"]  = fzf.actions.file_edit_or_qf,
+            ["ctrl-s"] = fzf.actions.file_split,
+            ["ctrl-v"] = fzf.actions.file_vsplit,
+            ["alt-q"]  = fzf.actions.file_sel_to_qf,
+            ["alt-Q"]  = fzf.actions.file_sel_to_ll,
+            ["alt-f"]  = fzf.actions.toggle_follow,
+            -- custom
+            ["ctrl-H"] = fzf.actions.toggle_hidden,
+            ["ctrl-I"] = fzf.actions.toggle_ignore,
+            ["ctrl-t"] = trouble_actions.open,
+          },
+        },
         files = {
           max_line_len = 10,
           path_shorten = true,
-          formatter      = "path.dirname_first",
+          formatter    = "path.dirname_first",
         },
         previewers = {
           builtin = {
@@ -41,10 +62,6 @@ return {
         }
       })
       require("fzf-lua").register_ui_select()
-      local config = require("fzf-lua.config")
-      local actions = require("trouble.sources.fzf").actions
-      config.defaults.actions.files["ctrl-t"] = actions.open
-    end,
-    opts = {}
+    end
   }
 }

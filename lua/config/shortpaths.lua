@@ -1,17 +1,20 @@
-return {
-  timefoldemployeescheduling = "ESS",
-  timefoldfieldservicerouting = "FSR",
-  orderfulfillmentrouting = "OFR",
-  timefoldci = "CI",
-  timefoldfrontend = "tf-frontend",
-  timefoldjobscheduling = "JS",
-  timefoldlongtermmachinejobscheduling = "LTMJS",
-  timefoldmodelssdk = "SDK",
-  timefoldmodelssdkenterprise = "SDKE", 
-  timefoldorbit = "orbit",
-  timefoldpickupdeliveryrouting = "PDR",
-  timefoldpresentations = "tf-pres",
-  timefoldsolver = "SOL",
-  timefoldsolverenterprise = "SOLE",
-  timefoldsandbox = "SDBX",
-}
+local M = {}
+M["/Users/lukasdownes/Documents/timefold-employee-scheduling/"] = "ESS"
+M["/Users/lukasdownes/Documents/timefold-field-service-routing/"] = "FSR"
+M["/Users/lukasdownes/Documents/order-fulfillment-routing/"] = "OFR"
+M["/Users/lukasdownes/Documents/timefold-ci/"] = "CI"
+M["/Users/lukasdownes/Documents/timefold-frontend/"] = "tf-frontend"
+M["/Users/lukasdownes/Documents/timefold-job-scheduling/"] = "JS"
+M["/Users/lukasdownes/Documents/timefold-models-sdk/"] = "SDK"
+M["/Users/lukasdownes/Documents/timefold-models-sdk-enterprise/"] = "SDKE"
+M["/Users/lukasdownes/Documents/timefold-orbit/"] = "orbit"
+M["/Users/lukasdownes/Documents/timefold-pickup-delivery-routing/"] = "PDR"
+M["/Users/lukasdownes/Documents/timefold-presentations/"] = "tf-pres"
+M["/Users/lukasdownes/Documents/timefold-solver/"] = "SOL"
+M["/Users/lukasdownes/Documents/timefold-solver-enterprise/"] = "SOLE"
+M["/Users/lukasdownes/Documents/timefold-sandbox/"] = "SDBX"
+M["/Users/lukasdownes/Documents/personal"] = "personal"
+M["/Users/lukasdownes/Documents/personal/notes/V1/"] = "notes"
+M["/Users/lukasdownes/Documents/personal/dev"] = "dev"
+M["/Users/lukasdownes/Documents/personal/dev/.config/nvim"] = "nconf"
+return M

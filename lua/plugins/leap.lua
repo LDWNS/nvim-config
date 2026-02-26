@@ -3,7 +3,7 @@ return {
   -- easily jump to any location and enhanced f/t motions for Leap
   {
     "ggandor/flit.nvim",
-    enabled = true,
+    enabled = false,
     keys = function()
       local ret = {}
       for _, key in ipairs({ "f", "F", "t", "T" }) do
@@ -34,7 +34,5 @@ return {
       vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
       leap.opts.preview = false
     end,
-  },
-  -- makes some plugins dot-repeatable like leap
-  { "tpope/vim-repeat", event = "VeryLazy" },
+  }
 }

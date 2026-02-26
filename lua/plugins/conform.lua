@@ -15,7 +15,7 @@ return {
   },
   opts = function()
     ---@module "conform"
-    ---@type conform.setupOpts
+    ---@class conform.setupOpts
     return {
       formatters_by_ft = {
         javascript = { "prettierd" },
@@ -33,27 +33,16 @@ return {
       default_format_opts = {
         lsp_format = "fallback",
       },
-      -- Set up format-on-save
-      -- format_on_save = function(bufnr)
-      --   return
-      -- end,
-      -- format_after_save = function(bufnr)
-      --   if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-      --     return
-      --   end
-      --   -- ...additional logic...
-      --   return { lsp_format = "fallback" }
-      -- end,
       -- Customize formatters
       formatters = {
         jq = {
           command = "jq",
           args = { "." },
         },
-        prettier = {
-          cwd = require("conform.util").root_file({ ".editorconfig", "package.json", ".prettierrc" }),
-          require_cwd = true
-        }
+        -- prettierd = {
+        --   cwd = require("conform.util").root_file({ ".editorconfig", "package.json", ".prettierrc" }),
+        --   require_cwd = true
+        -- }
       },
     }
   end,

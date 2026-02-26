@@ -11,7 +11,7 @@ return {
       "bashls", "cssls", "tailwindcss",
       "tailwindcss", "html", "ts_ls",
       "jsonls", "eslint", "yamlls",
-      "marksman", "gh-actions-language-server", "gopls"
+      "marksman", "gopls"
     };
 
     for _, server in ipairs(servers) do

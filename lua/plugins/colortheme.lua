@@ -3,10 +3,12 @@ return {
     "daschw/leaf.nvim",
     dir = "~/Documents/personal/leaf.nvim/",
     name = "leaf",
+    enabled = false,
   },
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
+    enabled = false,
   },
   {
     "folke/tokyonight.nvim",

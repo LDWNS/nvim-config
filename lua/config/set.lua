@@ -41,28 +41,8 @@ vim.api.nvim_create_user_command("Gpr", "Git pull --rebase origin main", {})
 vim.api.nvim_create_user_command("Gs", "Git status -sb", {})
 vim.api.nvim_create_user_command("Gpf", "Git push --force", {})
 
+local shortpaths = require("config.shortpaths")
+vim.g.shortpaths = shortpaths
 -- set title
 vim.opt.title = true
-local shortpaths = require("config.shortpaths")
-local getTitle = function()
-    local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
-    local cwdSubbed = cwd:gsub("-", "")
-    local shortpath = shortpaths[cwdSubbed]
-    if shortpath then
-        return " " .. shortpath
-    end
-    -- add neovim logo to title and ghostty logo
-    --    ⛺︎                                   
-    --                                      
-    --                                      
-    --                                      
-    --                                      
-    --                                      
-    --                                      
-    --                                      
-    --                                      
-    --                                     
-    return " " .. cwd
-end
-
-vim.opt.titlestring = getTitle()
+vim.opt.titlestring = GetTitle()

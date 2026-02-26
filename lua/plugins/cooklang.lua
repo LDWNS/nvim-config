@@ -1,1 +1,5 @@
-return { "luizribeiro/vim-cooklang", ft = "cook" }
+return {
+  "luizribeiro/vim-cooklang",
+  ft = "cook",
+  enabled = false
+}

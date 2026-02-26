@@ -1,5 +1,7 @@
 return {
   'm-demare/attempt.nvim',
+  lazy = true,
+  event = "VeryLazy",
   keys = function()
     local attempt = require("attempt")
 

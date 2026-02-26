@@ -1,13 +1,10 @@
 return {
   'MeanderingProgrammer/render-markdown.nvim',
-  dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+  dependencies = { 'nvim-treesitter/nvim-treesitter', "nvim-mini/mini.icons" },
   opts = {},
-  enabled = function()
-    -- Get the current working directory
-    local cwd = vim.fn.getcwd()
-    -- Disable if the path contains 'my-giant-repo'
-    return not string.find(cwd, "V1")
-  end,
+  lazy = true,
+  ft = "markdown",
+  enabled = false,
   config = function()
     require('render-markdown').setup({
       code = {
@@ -21,7 +18,7 @@ return {
         position = 'inline',
         -- Width of the heading background.
         width = 'block',
-      },
+      }
     })
   end,
 }

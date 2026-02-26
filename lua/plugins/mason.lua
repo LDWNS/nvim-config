@@ -1,6 +1,7 @@
 return {
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    event = "VeryLazy",
     opts = {
       ensure_installed = {
         -- lsps
@@ -20,8 +21,10 @@ return {
         "prettierd",
         "eslint_d",
         "java-debug-adapter",
+        "js-debug-adapter",
         "java-test"
       },
+      run_on_start = false
     },
     dependencies = {
       "mason-org/mason-lspconfig.nvim",

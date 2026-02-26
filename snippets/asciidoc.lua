@@ -1,5 +1,5 @@
 ---@diagnostic disable: undefined-global
-function getRelease()
+local function getRelease()
   local handle = io.popen('git fetch --tags 2> /dev/null && git tag --sort=-creatordate | head -n 1')
   if handle ~= nil then
     local result = handle:read("*a")
@@ -8,7 +8,7 @@ function getRelease()
     result = string.gsub(result, "\n", "")
 
     -- result ~ v1.15.2 -> 1, 15+1, 2
-    local major_str, minor_str, patch_str = string.match(result, "v(%d+)%.(%d+)%.(%d+)")
+    local major_str, minor_str, _ = string.match(result, "v(%d+)%.(%d+)%.(%d+)")
     if not major_str then
       return "no release"
     end

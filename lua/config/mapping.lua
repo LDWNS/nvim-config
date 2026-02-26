@@ -12,6 +12,7 @@ set({ "n", "v" }, "n", "nzzzv", { silent = true })
 set({ "n", "v" }, "N", "Nzzzv", { silent = true })
 set("n", "*", "*zzzv", { silent = true })
 set("n", "#", "#zzzv", { silent = true })
+set("n", " *", "*N", { silent = true })
 
 -- go to next diagnostic
 set("n", "]d", function()
@@ -30,7 +31,7 @@ set("t", "<Esc>", "<C-\\><C-n>")
 
 -- LSP keybindings
 local function get_opts(desc)
-  --- @type vim.keymap.set.Opts
+  --- @class vim.keymap.set.Opts
   local opts = { silent = true, nowait = true }
   opts.desc = desc
   return opts
@@ -44,7 +45,6 @@ set("n", "<leader>rn", vim.lsp.buf.rename, get_opts("rename"))
 
 --searching
 set("n", "<CR>", function()
-  ---@diagnostic disable-next-line: undefined-field
   if vim.v.hlsearch == 1 then
     vim.cmd.nohl()
     return ""
@@ -53,3 +53,38 @@ set("n", "<CR>", function()
   end
 end, { expr = true })
 
+-- custom
+_G.oil_change = function(opts)
+  local fzf_lua = require 'fzf-lua'
+  --- @module "fzf-lua"
+  --- @class fzf-lua.config.Base
+  opts = opts or {}
+  opts.prompt = "Gn> "
+  opts.winopts = {
+    height = 0.30,
+    width = 0.40
+  }
+  opts.actions = {
+    ['default'] = function(selected)
+      if selected[1] == nil then
+        return
+      end
+      local pth = string.gsub(selected[1], ".* ", "")
+      vim.cmd("cd " .. pth)
+      vim.opt.titlestring = GetTitle()
+      local oil = require("oil")
+      oil.open(pth)
+    end
+  }
+  fzf_lua.fzf_exec(function(fzf_cb)
+    for key, value in pairs(vim.g.shortpaths) do
+      local short = fzf_lua.utils.ansi_escseq.white .. value .. fzf_lua.utils.ansi_escseq.clear
+      local pth = fzf_lua.utils.ansi_escseq.grey .. key .. fzf_lua.utils.ansi_escseq.clear
+      fzf_cb(short .. " " .. pth)
+    end
+    fzf_cb()
+  end, opts)
+end
+
+vim.cmd([[command! -nargs=* Gn lua _G.oil_change()]])
+set("n", "<leader>gn", _G.oil_change, get_opts("gn"))
