@@ -15,16 +15,10 @@ set("n", "#", "#zzzv", { silent = true })
 set("n", " *", "*N", { silent = true })
 
 -- go to next diagnostic
-set("n", "]d", function()
-  vim.diagnostic.jump({ count = 1, float = true })
-end
-)
-
+set("n", "]d", ":lua vim.diagnostic.jump({ count = 1, float = true })<CR>", { desc = "next diagnostic", silent = true })
 --go to previous diagnostic
-set("n", "[d", function()
-  vim.diagnostic.jump({ count = -1, float = true })
-end
-)
+set("n", "[d", ":lua vim.diagnostic.jump({ count = -1, float = true })<CR>",
+  { desc = "previous diagnostic", silent = true })
 
 --escape term mode
 set("t", "<Esc>", "<C-\\><C-n>")

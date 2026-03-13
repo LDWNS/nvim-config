@@ -13,6 +13,11 @@ return {
       max_height = .6,
     },
     keymaps = {
+      ["<C-h>"] = false,
+      ["<C-l>"] = false,
+      ["<C-k>"] = false,
+      ["<C-j>"] = false,
+      ["<M-h>"] = "actions.select_split",
       ["gd"] = {
         desc = "Toggle file detail view",
         callback = function()
@@ -29,4 +34,5 @@ return {
   keys = {
     { "<leader>of", "<cmd>lua require('oil').open_float()<CR>" }
   },
-  dependencies = { { "nvim-mini/mini.icons", opts = {} } },}
+  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+}

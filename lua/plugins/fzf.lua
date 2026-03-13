@@ -21,7 +21,7 @@ return {
         { '<leader>fi', fzf.git_files,        desc = "Fzf: git files" },
         { '<leader>gr', fzf.lsp_references,   desc = "Fzf: lsp refs" },
         { '<leader>ca', fzf.lsp_code_actions, desc = "Fzf: lsp code actions", silent = true, mode = { "n", "v" } },
-        { '<leader>fb', fzf.manpages,         desc = "Fzf: man" },
+        { '<leader>fm', fzf.manpages,         desc = "Fzf: man" },
       }
     end,
     config = function()
@@ -32,15 +32,10 @@ return {
         actions = {
           files = {
             -- default
-            ["enter"]  = fzf.actions.file_edit_or_qf,
-            ["ctrl-s"] = fzf.actions.file_split,
-            ["ctrl-v"] = fzf.actions.file_vsplit,
-            ["alt-q"]  = fzf.actions.file_sel_to_qf,
-            ["alt-Q"]  = fzf.actions.file_sel_to_ll,
-            ["alt-f"]  = fzf.actions.toggle_follow,
+            true,
             -- custom
             ["ctrl-H"] = fzf.actions.toggle_hidden,
-            ["ctrl-I"] = fzf.actions.toggle_ignore,
+            ["ctrl-g"] = fzf.actions.toggle_ignore,
             ["ctrl-t"] = trouble_actions.open,
           },
         },
