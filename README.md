@@ -4,7 +4,6 @@ I use some plugins but try to keep it minimal.
 
 ## Plugins
 ### Active
-- [./lua/plugins/cmp-handler.lua](https://github.com/hrsh7th/nvim-cmp)
 - [./lua/plugins/colorizer](https://github.com/catgoose/nvim-colorizer.lua)
 - [./lua/plugins/colortheme](https://github.com/projekt0n/github-nvim-theme)
 - [./lua/plugins/dap](https://github.com/mfussenegger/nvim-dap)

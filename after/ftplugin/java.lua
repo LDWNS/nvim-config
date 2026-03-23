@@ -12,7 +12,6 @@ vim.opt.formatoptions = "tjlr"
 vim.cmd([[command! -nargs=* UpdateOpenAPISpec !mvn clean install -Dupdate-api -Dquickly]])
 
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local plugin_install_location = vim.fn.expand("~/.local/share/nvim/mason/packages")
 local bundles = {
   vim.fn.glob(
@@ -32,6 +31,8 @@ for _, java_test_jar in ipairs(java_test_bundles) do
     table.insert(bundles, java_test_jar)
   end
 end
+
+local capabilities = require("blink-cmp").get_lsp_capabilities()
 
 local config = {
   name = "jdtls",

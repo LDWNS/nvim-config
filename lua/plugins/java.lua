@@ -20,8 +20,6 @@ return {
     end,
     -- Optional: Add dependencies
     dependencies = {
-      "hrsh7th/nvim-cmp",
-      "hrsh7th/cmp-nvim-lsp",
       "mfussenegger/nvim-dap",
       "rcarriga/nvim-dap-ui",
     },

@@ -30,7 +30,7 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 12
 vim.opt.signcolumn = "yes"
 
--- noice ~ works with 'gf' command (goto file)
+-- noice ~/../. works with 'gf' command (goto file)
 vim.opt.isfname:append("@-@")
 
 -- nice border around windows
