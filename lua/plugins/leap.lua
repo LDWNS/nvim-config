@@ -1,20 +1,4 @@
----@diagnostic disable: undefined-global
 return {
-  -- easily jump to any location and enhanced f/t motions for Leap
-  {
-    "ggandor/flit.nvim",
-    enabled = false,
-    keys = function()
-      local ret = {}
-      for _, key in ipairs({ "f", "F", "t", "T" }) do
-        ret[#ret + 1] = { key, mode = { "n", "x", "o" } }
-      end
-      return ret
-    end,
-    opts = {
-      labeled_modes = "nx"
-    },
-  },
   {
     url = "https://codeberg.org/andyg/leap.nvim",
     enabled = true,
