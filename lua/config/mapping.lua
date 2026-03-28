@@ -48,6 +48,47 @@ set("n", "<CR>", function()
 end, { expr = true })
 
 -- custom
+_G.context_fzf = function(opts)
+  local fzf_lua = require 'fzf-lua'
+  --- @module "fzf-lua"
+  --- @class fzf-lua.config.Base
+  opts = opts or {}
+  opts.prompt = "Context> "
+  opts.winopts = {
+    height = 0.30,
+    width = 0.40
+  }
+  opts.actions = {
+    ['default'] = function(selected)
+      if selected[1] == nil then
+        return
+      end
+      -- open the file in the current buffer
+      vim.cmd("e " .. selected[1])
+    end,
+    ['ctrl-v'] = function(selected)
+      if selected[1] == nil then
+        return
+      end
+      -- open the file in the vertical split
+      vim.cmd("vsplit " .. selected[1])
+    end
+  }
+  fzf_lua.fzf_exec(function(fzf_cb)
+    local cwd = vim.fn.getcwd()
+    -- check whether .context directory exists
+    if vim.fn.isdirectory(cwd .. "/.context") == 0 then
+      fzf_cb()
+      return
+    end
+    local files = vim.fn.globpath(cwd .. "/.context/", "*", true, true)
+    for _, value in pairs(files) do
+      fzf_cb(fzf_lua.utils.ansi_escseq.white .. value .. fzf_lua.utils.ansi_escseq.clear)
+    end
+    fzf_cb()
+  end, opts)
+end
+
 _G.oil_change = function(opts)
   local fzf_lua = require 'fzf-lua'
   --- @module "fzf-lua"
@@ -81,4 +122,7 @@ _G.oil_change = function(opts)
 end
 
 vim.cmd([[command! -nargs=* Gn lua _G.oil_change()]])
-set("n", "<leader>gn", _G.oil_change, get_opts("gn"))
+set("n", "<leader>gn", _G.oil_change, get_opts("Go to shortpath (nvim)"))
+
+vim.cmd([[command! -nargs=* Fk lua _G.context_fzf()]])
+set("n", "<leader>fk", _G.context_fzf, get_opts("Open context file."))
