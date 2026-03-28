@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-global
+--@diagnostic disable: undefined-global
 -- TODO: add the following xml files as vim settings
 -- <setting id="org.eclipse.jdt.core.formatter.tabulation.char" value="space"/>
 -- <setting id="org.eclipse.jdt.core.formatter.wrap_before_assignment_operator" value="false"/>

@@ -15,9 +15,8 @@ return {
             vim.cmd.nohl()
             return true
           end
-          return
-        end, "snippet_forward", "select_and_accept", "fallback" },
-      ['<Tab>'] = { "snippet_forward", "select_and_accept", "fallback" },
+        end, "select_and_accept", "fallback" },
+      ['<Tab>'] = { "snippet_forward", "fallback" },
       ['<S-Tab>'] = { "snippet_backward", "fallback" }
     },
 

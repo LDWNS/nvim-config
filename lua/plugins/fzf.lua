@@ -7,7 +7,6 @@ return {
     dependencies = {
       "nvim-mini/mini.icons",
       "folke/snacks.nvim",
-      'MeanderingProgrammer/render-markdown.nvim',
     },
     keys = function()
       local fzf = require("fzf-lua")
@@ -47,7 +46,6 @@ return {
         previewers = {
           builtin = {
             snacks_image = { enabled = true, render_inline = false },
-            render_markdown = { enabled = true, filetypes = { ["markdown"] = true } },
             extensions = {
               ["png"] = { "viu", "-b" },
               ["svg"] = { "chafa" },
