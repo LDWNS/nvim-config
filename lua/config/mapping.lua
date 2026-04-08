@@ -129,3 +129,19 @@ set("n", "<leader>gn", _G.oil_change, get_opts("Go to shortpath (nvim)"))
 
 vim.cmd([[command! -nargs=* Fk lua _G.context_fzf()]])
 set("n", "<leader>fk", _G.context_fzf, get_opts("Open context file."))
+
+
+local text_transforms = require("config.texttransforms")
+
+set("v", "<leader>ps", function()
+ text_transforms.replaceText(text_transforms.PascalToSnakeCase)
+end, get_opts("PascalCase to snake_case"))
+
+set("v", "<leader>pS", function()
+ text_transforms.replaceText(text_transforms.PascalToCSnakeCase)
+end, get_opts("PascalCase to SNAKE_CASE"))
+
+set("v", "<leader>pp", function()
+ text_transforms.replaceText(text_transforms.SnakeToPascal)
+end, get_opts("snake_case to PascalCase"))
+
