@@ -52,26 +52,51 @@ M.replaceText = function(method)
 end
 
 ---@param text string   -- e.g. SELECTED_TEXT
----@return string value -- e.g. SelectedText
+---@return string       -- e.g. SelectedText
 M.SnakeToPascal = function(text)
   local list = {}
   text = text:upper()
   -- split the text by underscores and capitalize the first letter of each word
   for word in string.gmatch(text, "[^_]+") do
-    table.insert(list, word:sub(1,1) .. word:sub(2):lower())
+    table.insert(list, word:sub(1, 1) .. word:sub(2):lower())
   end
   return table.concat(list);
 end
 
----@param text string
----@return string
-M.PascalToSnakeCase = function(text)
-  return text:gsub("[A-Z]", "_%0"):sub(2):lower();
+---@param text string   -- e.g. SELECTED_TEXT
+---@return string       -- e.g. selectedText
+M.SnakeToCamel = function(text)
+  local index = 0
+  local list = {}
+  text = text:upper()
+  for word in string.gmatch(text, "[^_]+") do
+    if index == 0 then
+      table.insert(list, word:lower())
+    else
+      table.insert(list, word:sub(1, 1) .. word:sub(2):lower())
+    end
+    index = index + 1
+  end
+  return table.concat(list)
 end
----@param text string
----@return string
-M.PascalToCSnakeCase = function(text)
-  return text:gsub("[A-Z]", "_%0"):sub(2):upper();
-end
-return M
 
+---@param text string
+---@return string
+M.PasCamelToSnakeCase = function(text)
+  if string.match(text, "^[A-Z]") ~= nil then
+    return text:gsub("[A-Z]", "_%0"):sub(2):lower();
+  end
+  return text:gsub("[A-Z]", "_%0"):lower();
+end
+
+---@param text string
+---@return string
+M.PasCamelToCSnakeCase = function(text)
+  if string.match(text, "^[A-Z]") ~= nil then
+    return text:gsub("[A-Z]", "_%0"):sub(2):upper();
+  end
+  return text:gsub("[A-Z]", "_%0"):upper();
+end
+
+
+return M

@@ -37,7 +37,7 @@ set("n", "gd", vim.lsp.buf.definition, get_opts("gt definition"))
 set("n", "gD", vim.lsp.buf.declaration, get_opts("gt declaration"))
 set("n", "K", vim.lsp.buf.hover, get_opts())
 set("n", "gi", vim.lsp.buf.implementation, get_opts("gt implementation"))
-set("n", "<C-i>", vim.lsp.buf.signature_help, get_opts())
+set("n", "gI", vim.lsp.buf.signature_help, get_opts())
 set("n", "<leader>rn", vim.lsp.buf.rename, get_opts("rename"))
 
 --searching
@@ -134,14 +134,17 @@ set("n", "<leader>fk", _G.context_fzf, get_opts("Open context file."))
 local text_transforms = require("config.texttransforms")
 
 set("v", "<leader>ps", function()
- text_transforms.replaceText(text_transforms.PascalToSnakeCase)
+  text_transforms.replaceText(text_transforms.PasCamelToSnakeCase)
 end, get_opts("PascalCase to snake_case"))
 
 set("v", "<leader>pS", function()
- text_transforms.replaceText(text_transforms.PascalToCSnakeCase)
+  text_transforms.replaceText(text_transforms.PasCamelToCSnakeCase)
 end, get_opts("PascalCase to SNAKE_CASE"))
 
 set("v", "<leader>pp", function()
- text_transforms.replaceText(text_transforms.SnakeToPascal)
+  text_transforms.replaceText(text_transforms.SnakeToPascal)
 end, get_opts("snake_case to PascalCase"))
 
+set("v", "<leader>pc", function()
+  text_transforms.replaceText(text_transforms.SnakeToCamel)
+end, get_opts("snake_case to camelCase"))
