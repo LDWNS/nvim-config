@@ -1,1 +1,1 @@
-/home/ldwns/.local/share/ketos/themes/red/theme.lua
+/home/ldwns/.local/share/ketos/themes/green/theme.lua
