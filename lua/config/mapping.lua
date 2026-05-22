@@ -148,3 +148,7 @@ end, get_opts("snake_case to PascalCase"))
 set("v", "<leader>pc", function()
   text_transforms.replaceText(text_transforms.SnakeToCamel)
 end, get_opts("snake_case to camelCase"))
+
+local t = require("config.timtim")
+set("n", "<leader>ts", t.toggle, get_opts("Toggle timtim"))
+set("n", "<leader>tr", t.reset, get_opts("Reset timtim"))

@@ -11,16 +11,31 @@ return {
     keys = function()
       local fzf = require("fzf-lua")
       return {
-        { '<leader>ff', fzf.files,            desc = "Fzf: files" },
-        { '<leader>fg', fzf.live_grep,        desc = "Fzf: grep" },
-        { '<leader>fb', fzf.buffers,          desc = "Fzf: buffers" },
-        { '<leader>fh', fzf.help_tags,        desc = "Fzf: vim help" },
-        { '<leader>fs', fzf.git_status,       desc = "Fzf: status" },
-        { '<leader>fc', fzf.git_commits,      desc = "Fzf: commits" },
-        { '<leader>fi', fzf.git_files,        desc = "Fzf: git files" },
-        { '<leader>gr', fzf.lsp_references,   desc = "Fzf: lsp refs" },
-        { '<leader>ca', fzf.lsp_code_actions, desc = "Fzf: lsp code actions", silent = true, mode = { "n", "v" } },
-        { '<leader>fm', fzf.manpages,         desc = "Fzf: man" },
+        {
+          '<leader>ca',
+          function()
+            fzf.lsp_code_actions({
+              -- Filter out actions where the LSP has set a 'disabled' table/message
+              filter = function(action)
+                print(action)
+                return action.disabled == nil
+              end,
+            })
+          end,
+          desc = "Fzf: lsp code actions",
+          silent = true,
+          mode = { "n", "v" }
+        },
+        { '<leader>fb', fzf.buffers,        desc = "Fzf: buffers" },
+        { '<leader>fc', fzf.git_commits,    desc = "Fzf: commits" },
+        { '<leader>ff', fzf.files,          desc = "Fzf: files" },
+        { '<leader>fg', fzf.live_grep,      desc = "Fzf: grep" },
+        { '<leader>fh', fzf.help_tags,      desc = "Fzf: vim help" },
+        { '<leader>fi', fzf.git_files,      desc = "Fzf: git files" },
+        { '<leader>fm', fzf.manpages,       desc = "Fzf: man" },
+        { '<leader>fs', fzf.git_status,     desc = "Fzf: status" },
+        { '<leader>fw', fzf.git_worktrees,  desc = "Fzf: git worktrees" },
+        { '<leader>gr', fzf.lsp_references, desc = "Fzf: lsp refs" },
       }
     end,
     config = function()

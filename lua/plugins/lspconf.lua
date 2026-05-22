@@ -5,7 +5,7 @@ return {
     local servers = {
       "lemminx", "lua_ls",
       "bashls", "cssls", "tailwindcss",
-      "tailwindcss", "html", "ts_ls",
+      "html", "vtsls",
       "jsonls", "eslint", "yamlls",
       "marksman", "gopls", "pyright"
     };

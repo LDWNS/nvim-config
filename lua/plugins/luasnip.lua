@@ -8,5 +8,8 @@ return {
     require("luasnip").setup({})
     require("luasnip.loaders.from_vscode").lazy_load()
     require("luasnip.loaders.from_lua").load({ paths = { "./snippets" } })
-  end
+  end,
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+  },
 }

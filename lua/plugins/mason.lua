@@ -28,7 +28,14 @@ return {
     },
     dependencies = {
       "mason-org/mason-lspconfig.nvim",
-      { "mason-org/mason.nvim", opts = {} },
+      {
+        "mason-org/mason.nvim",
+        opts = {
+          -- registries = {
+          --   "file:~/Documents/personal/mason-registry"
+          -- }
+        }
+      },
       "neovim/nvim-lspconfig",
     },
   }

@@ -112,3 +112,16 @@ config.settings.java = {
 }
 
 require('jdtls').start_or_attach(config)
+
+require('jdtls').setup_dap({ hotcodereplace = 'auto' })
+-- attach to running process
+require('dap').configurations.java = {
+  {
+    type = 'java',
+    request = 'attach',
+    name = "Debug (Attach) - :5005",
+    hotcodereplace = true,
+    hostName = "127.0.0.1",
+    port = 5005,
+  },
+}
