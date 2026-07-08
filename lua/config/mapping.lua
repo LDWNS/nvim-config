@@ -24,7 +24,10 @@ set("n", "[d", ":lua vim.diagnostic.jump({ count = -1, float = true })<CR>",
 set("t", "<Esc>", "<C-\\><C-n>")
 
 --undotree
-set("n", "<leader>u", ":Undotree<CR>", { desc = "Toggle undotree" })
+set("n", "<leader>u", function()
+  vim.cmd.packadd("nvim.undotree")
+  require("undotree").open()
+end, { desc = "Toggle undotree" })
 
 -- LSP keybindings
 local function get_opts(desc)
