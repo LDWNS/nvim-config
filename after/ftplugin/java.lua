@@ -9,7 +9,7 @@ vim.opt.expandtab = true
 -- don't format comments in Java (doesn't get activated -> jdtls is used as formatter)
 vim.opt.formatoptions = "tjlr"
 
-vim.cmd([[command! -nargs=* UpdateOpenAPISpec !mvn clean install -Dupdate-api -Dquickly]])
+vim.cmd([[command! -nargs=* UpdateOpenAPISpec !rtk mvn clean install -Dupdate-api -Dquickly]])
 
 
 local plugin_install_location = vim.fn.expand("~/.local/share/nvim/mason/packages")
