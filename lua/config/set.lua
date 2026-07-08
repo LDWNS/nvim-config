@@ -57,6 +57,12 @@ require('vim._core.ui2').enable()
 vim.api.nvim_create_user_command("Gpr", "Git pull --rebase origin main", {})
 vim.api.nvim_create_user_command("Gs", "Git status -sb", {})
 vim.api.nvim_create_user_command("Gpf", "Git push --force", {})
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Hightlight after yank.",
+  callback = function()
+    vim.hl.on_yank()
+  end
+})
 
 local shortpaths = require("config.shortpaths")
 vim.g.shortpaths = shortpaths
