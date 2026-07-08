@@ -26,6 +26,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.splitright = true
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+vim.opt.undofile = true
 
 -- colours
 vim.opt.termguicolors = true
