@@ -1,6 +1,6 @@
 ---@diagnostic disable: undefined-global
 local function getRelease()
-  local handle = io.popen('git fetch --tags 2> /dev/null && git tag --sort=-creatordate | head -n 1')
+  local handle = io.popen('git fetch --tags 2> /dev/null && git tag --sort=-creatordate | rg v1 | head -n 1')
   if handle ~= nil then
     local result = handle:read("*a")
     handle:close()
