@@ -17,7 +17,6 @@ return {
             fzf.lsp_code_actions({
               -- Filter out actions where the LSP has set a 'disabled' table/message
               filter = function(action)
-                print(action)
                 return action.disabled == nil
               end,
             })
