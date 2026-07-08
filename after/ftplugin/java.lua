@@ -38,7 +38,7 @@ local config = {
   name = "jdtls",
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   cmd = { "jdtls" },
-  root_dir = vim.fs.root(0, { 'gradlew', '.git', 'mvnw' }),
+  root_dir = vim.fs.root(0, { 'gradlew', '.git', 'mvnw', 'pom.xml' }),
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
   settings = {
     java = {
