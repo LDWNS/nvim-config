@@ -21,6 +21,7 @@ vim.opt.backup = false
 -- search
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.inccommand = "split"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
