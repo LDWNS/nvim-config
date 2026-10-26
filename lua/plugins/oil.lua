@@ -1,38 +1,41 @@
 local detail = false
 return {
-  'stevearc/oil.nvim',
-  lazy = false,
-  ---@module 'oil'
-  ---@class oil.SetupOpts
-  opts = {
-    view_options = {
-      show_hidden = true
-    },
-    float = {
-      max_width = .6,
-      max_height = .6,
-    },
-    keymaps = {
-      ["<C-h>"] = false,
-      ["<C-l>"] = false,
-      ["<C-k>"] = false,
-      ["<C-j>"] = false,
-      ["<M-h>"] = "actions.select_split",
-      ["gd"] = {
-        desc = "Toggle file detail view",
-        callback = function()
-          detail = not detail
-          if detail then
-            require("oil").set_columns({ "icon", "permissions" })
-          else
-            require("oil").set_columns({ "icon" })
-          end
-        end,
+  {
+    'stevearc/oil.nvim',
+    lazy = false,
+    ---@module 'oil'
+    ---@class oil.SetupOpts
+    opts = {
+      view_options = {
+        show_hidden = true
+      },
+      float = {
+        max_width = .6,
+        max_height = .6,
+      },
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<C-l>"] = false,
+        ["<C-k>"] = false,
+        ["<C-j>"] = false,
+        ["<M-h>"] = "actions.select_split",
+        ["gd"] = {
+          desc = "Toggle file detail view",
+          callback = function()
+            detail = not detail
+            if detail then
+              require("oil").set_columns({ "icon", "permissions" })
+            else
+              require("oil").set_columns({ "icon" })
+            end
+          end,
+        },
       },
     },
+    keys = {
+      { "<leader>of", "<cmd>lua require('oil').open_float()<CR>" }
+    },
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
   },
-  keys = {
-    { "<leader>of", "<cmd>lua require('oil').open_float()<CR>" }
-  },
-  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  { "malewicz1337/oil-git.nvim", dependencies = { "stevearc/oil.nvim" } }
 }
