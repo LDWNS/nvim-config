@@ -29,6 +29,12 @@ set("n", "<leader>u", function()
   require("undotree").open()
 end, { desc = "Toggle undotree" })
 
+-- macros: start recording with <leader>q, plain q only stops a recording
+set("n", "<leader>q", "q", { desc = "Record macro" })
+set("n", "q", function()
+  return vim.fn.reg_recording() ~= "" and "q" or ""
+end, { expr = true, desc = "Stop macro recording" })
+
 -- LSP keybindings
 local function get_opts(desc)
   --- @class vim.keymap.set.Opts
@@ -36,7 +42,6 @@ local function get_opts(desc)
   opts.desc = desc
   return opts
 end
-set("n", "gd", vim.lsp.buf.definition, get_opts("gt definition"))
 set("n", "gD", vim.lsp.buf.declaration, get_opts("gt declaration"))
 set("n", "K", vim.lsp.buf.hover, get_opts())
 set("n", "gi", vim.lsp.buf.implementation, get_opts("gt implementation"))
