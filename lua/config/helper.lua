@@ -22,3 +22,11 @@ GetTitle = function()
   return " " .. cwd
 end
 
+
+Dump = function(t)
+  return vim.json.encode(t)
+end
+
+PDump = function(t)
+  print(vim.fn.system('jq .', Dump(t)))
+end
