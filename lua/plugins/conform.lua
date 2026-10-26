@@ -39,10 +39,6 @@ return {
           command = "jq",
           args = { "." },
         },
-        -- prettierd = {
-        --   cwd = require("conform.util").root_file({ ".editorconfig", "package.json", ".prettierrc" }),
-        --   require_cwd = true
-        -- }
       },
     }
   end,

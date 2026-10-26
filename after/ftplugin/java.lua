@@ -19,6 +19,8 @@ local bundles = {
     true)
 }
 
+-- local installation
+-- local java_test_bundles = vim.split(vim.fn.glob("/Users/lukasdownes/Documents/personal/vscode-java-test/server/*.jar", true),
 local java_test_bundles = vim.split(vim.fn.glob(plugin_install_location .. "/java-test/extension/server/*.jar", true),
   "\n")
 local excluded = {
