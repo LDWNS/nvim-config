@@ -13,7 +13,6 @@ return {
         "bashls",
         "jsonls",
         "tailwindcss",
-        "jdtls",
         "marksman",
         "lemminx",
         "gopls",
@@ -31,9 +30,9 @@ return {
       {
         "mason-org/mason.nvim",
         opts = {
-          -- registries = {
-          --   "file:~/Documents/personal/mason-registry"
-          -- }
+          registries = {
+            "file:~/Documents/personal/mason-registry"
+          }
         }
       },
       "neovim/nvim-lspconfig",
